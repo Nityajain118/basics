@@ -42,7 +42,7 @@ print("Quantity:", quantity)
 print("Amount: Rs", amount)
 print("GST (5%): RS", round(gst))
 print("total bill is: RS", (final_amount))
-"""
+
 menu = ["1.Veg Thali: ₹150","2.Paneer Butter Masala: ₹180","3.Dal Tadka: ₹110",
 "4.Mixed Veg Curry: ₹130","5.Jeera Rice: ₹90","6.Tawa Roti: ₹10","7.Butter Naan: ₹30",
 "8.Veg Fried Rice: ₹140","9.Masala Papad: ₹20","10.Lassi: ₹50"]
@@ -78,7 +78,43 @@ print("your tax amount on the bill is  ", total_bill)
 total_bill+=total
 total_bill = round(total_bill)
 print("your final bill amount is {}".format(total_bill))
+"""
 
+menu = {
+    "Pizza": 200,
+    "Burger": 100,
+    "Pasta": 150,
+    "Sandwich": 80,
+    "Coffee": 50
+}
+
+print(" MENU ")
+for item in menu:
+    print(item, ":", menu[item])
+
+total = 0
+
+while True:
+    order = input("\nEnter item name (or type 'done' to finish): ")
+    
+    if order == "done":
+        break
+    
+    if order in menu:
+        qty = int(input("Enter quantity: "))
+        total += menu[order] * qty
+        print(order, "added to bill")
+    else:
+        print("Item not available!")
+
+
+gst = total * 0.05
+final_amount = total + gst
+
+print("\nBILL")
+print("Total Amount:", total)
+print("(5%):", gst)
+print("Final :", final_amount)
 
 
 
